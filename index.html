@@ -21,6 +21,7 @@
                 <li><a href="#diseno">Diseño gráfico</a></li>
                 <li><a href="#ilustracion">Ilustración</a></li>
                 <li><a href="#herramientas">Herramientas</a></li>
+                <li><a href="#favoritos">Favoritos</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
@@ -139,9 +140,123 @@
             </div>
         </section>
 
+        <!-- NUEVA SECCION: NEXUS FAVORITES -->
+        <section class="section favorites-section" id="favoritos">
+
+            <p class="subtitle">04 / TU ESPACIO CREATIVO</p>
+
+            <div class="favorites-heading">
+                <div>
+                    <h2>YOUR TOOLS. <span>YOUR INSPIRATION.</span></h2>
+
+                    <p class="favorites-intro">
+                        Selecciona las herramientas que forman
+                        parte de tu creatividad.
+                    </p>
+                </div>
+
+                <span class="development-badge">
+                    ● FUNCIÓN EN DESARROLLO
+                </span>
+            </div>
+
+            <div class="favorites-grid">
+
+                <article class="favorite-card">
+                    <div class="favorite-icon">Ps</div>
+
+                    <h3>Photoshop</h3>
+
+                    <p>
+                        Edición y composición digital.
+                    </p>
+
+                    <button
+                        type="button"
+                        class="favorite-select"
+                        data-tool="Photoshop"
+                        aria-pressed="false">
+                        + Seleccionar
+                    </button>
+                </article>
+
+                <article class="favorite-card">
+                    <div class="favorite-icon">Ai</div>
+
+                    <h3>Illustrator</h3>
+
+                    <p>
+                        Diseño vectorial e identidad visual.
+                    </p>
+
+                    <button
+                        type="button"
+                        class="favorite-select"
+                        data-tool="Illustrator"
+                        aria-pressed="false">
+                        + Seleccionar
+                    </button>
+                </article>
+
+                <article class="favorite-card">
+                    <div class="favorite-icon">Pr</div>
+
+                    <h3>Procreate</h3>
+
+                    <p>
+                        Dibujo e ilustración digital.
+                    </p>
+
+                    <button
+                        type="button"
+                        class="favorite-select"
+                        data-tool="Procreate"
+                        aria-pressed="false">
+                        + Seleccionar
+                    </button>
+                </article>
+
+            </div>
+
+            <!-- LISTA DE FAVORITOS -->
+            <div class="my-favorites">
+                <div class="favorites-list-heading">
+                    <h3>MIS FAVORITOS</h3>
+                    <span>SELECCIÓN DE PRUEBA</span>
+                </div>
+
+                <ul id="favorites-list" aria-live="polite">
+                    <li class="empty-favorites">
+                        Todavía no has seleccionado herramientas.
+                    </li>
+                </ul>
+            </div>
+
+            <!-- AVISO DE DESARROLLO -->
+            <div class="development-notice">
+                <h3>FUNCIÓN EN DESARROLLO</h3>
+
+                <p>
+                    Próximamente podrás guardar tus herramientas
+                    favoritas y consultarlas desde tu cuenta.
+                </p>
+
+                <p class="notice-small">
+                    Esta es una vista previa. Las selecciones
+                    no se guardan en una cuenta ni en una base de datos.
+                </p>
+
+                <button type="button" class="btn save-disabled" disabled>
+                    GUARDAR MIS FAVORITOS
+                </button>
+            </div>
+
+        </section>
+
         <!-- CONTACTO Y PIE DE PAGINA -->
         <section class="section contact" id="contacto">
-            <p class="subtitle">04 / CONECTA CON NOSOTROS</p>
+            <p class="subtitle">05 / CONECTA CON NOSOTROS</p>
+
             <h2>La creatividad no tiene <span>límites.</span></h2>
 
             <p>
@@ -159,8 +274,57 @@
     <footer class="footer">
         <a href="#inicio" class="logo">NEXUS<span>DESIGN.</span></a>
         <p>Diseño gráfico e ilustración digital.</p>
-        <p>© 2026 NEXUS DESIGN. Proyecto académico B5B.</p>
+        <p>© 2026 NEXUS DESIGN. Proyecto académico B5A.</p>
     </footer>
+
+    <!-- INTERACCION DE VISTA PREVIA: SIN ALMACENAMIENTO -->
+    <script>
+        const selectedTools = [];
+
+        const selectionButtons = document.querySelectorAll(".favorite-select");
+        const favoritesList = document.getElementById("favorites-list");
+
+        selectionButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                const tool = button.dataset.tool;
+                const index = selectedTools.indexOf(tool);
+
+                if (index === -1) {
+                    selectedTools.push(tool);
+                    button.textContent = "✓ Seleccionado";
+                    button.setAttribute("aria-pressed", "true");
+                    button.classList.add("selected");
+                } else {
+                    selectedTools.splice(index, 1);
+                    button.textContent = "+ Seleccionar";
+                    button.setAttribute("aria-pressed", "false");
+                    button.classList.remove("selected");
+                }
+
+                updateFavorites();
+            });
+        });
+
+        function updateFavorites() {
+            favoritesList.innerHTML = "";
+
+            if (selectedTools.length === 0) {
+                const emptyMessage = document.createElement("li");
+                emptyMessage.className = "empty-favorites";
+                emptyMessage.textContent =
+                    "Todavía no has seleccionado herramientas.";
+
+                favoritesList.appendChild(emptyMessage);
+                return;
+            }
+
+            selectedTools.forEach(tool => {
+                const item = document.createElement("li");
+                item.textContent = "✓ " + tool;
+                favoritesList.appendChild(item);
+            });
+        }
+    </script>
 
 </body>
 </html>
