@@ -114,6 +114,7 @@ h1 {
     color: white;
     padding: 13px 25px;
     text-decoration: none;
+    border: none;
     border-radius: 6px;
     font-weight: bold;
     transition: 0.3s;
@@ -187,6 +188,194 @@ h2 {
     color: #bbb;
 }
 
+/* NEXUS FAVORITES */
+.favorites-section {
+    background: #0d0d17;
+    border-top: 1px solid #292936;
+    border-bottom: 1px solid #292936;
+}
+
+.favorites-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.favorites-heading h2 {
+    font-size: clamp(28px, 4vw, 42px);
+    margin-bottom: 12px;
+}
+
+.favorites-heading h2 span {
+    display: block;
+}
+
+.favorites-intro {
+    color: #aaa;
+    margin-bottom: 30px;
+}
+
+.development-badge {
+    color: #fbbf24;
+    border: 1px solid #8a651b;
+    background: #29200e;
+    padding: 9px 15px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.favorites-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-top: 20px;
+}
+
+.favorite-card {
+    background: #171723;
+    border: 1px solid #393047;
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.favorite-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--violet);
+}
+
+.favorite-icon {
+    width: 65px;
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px;
+    background: #29203a;
+    border: 1px solid var(--violet);
+    border-radius: 15px;
+    color: var(--violet);
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.favorite-card h3 {
+    color: var(--violet);
+    margin-bottom: 10px;
+}
+
+.favorite-card p {
+    color: #bbb;
+    font-size: 14px;
+    margin-bottom: 22px;
+}
+
+.favorite-select {
+    background: transparent;
+    border: 1px solid var(--violet);
+    color: white;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.favorite-select:hover,
+.favorite-select.selected {
+    background: var(--violet);
+    color: white;
+}
+
+/* LISTA DE FAVORITOS */
+.my-favorites {
+    background: #171723;
+    border: 1px solid #393047;
+    border-radius: 12px;
+    padding: 25px;
+    margin-top: 35px;
+}
+
+.favorites-list-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.favorites-list-heading h3 {
+    color: var(--violet);
+    letter-spacing: 1px;
+}
+
+.favorites-list-heading span {
+    color: var(--blue);
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+#favorites-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+#favorites-list li {
+    background: #29203a;
+    border: 1px solid #65418c;
+    color: white;
+    padding: 9px 15px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+#favorites-list .empty-favorites {
+    background: transparent;
+    border: none;
+    color: #999;
+    padding: 0;
+}
+
+/* AVISO DE DESARROLLO */
+.development-notice {
+    text-align: center;
+    background: #11111b;
+    border: 1px solid #393047;
+    border-radius: 12px;
+    padding: 35px 25px;
+    margin-top: 25px;
+}
+
+.development-notice h3 {
+    color: var(--blue);
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.development-notice p {
+    color: #bbb;
+    margin-bottom: 15px;
+}
+
+.development-notice .notice-small {
+    color: #888;
+    font-size: 12px;
+}
+
+.save-disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    margin-top: 8px;
+}
+
 /* CONTACTO */
 .contact {
     text-align: center;
@@ -212,6 +401,7 @@ h2 {
 
 /* ADAPTACION A CELULARES */
 @media (max-width: 768px) {
+
     .navbar {
         flex-direction: column;
     }
@@ -232,6 +422,19 @@ h2 {
 
     .tools-grid {
         grid-template-columns: 1fr;
+    }
+
+    .favorites-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .favorites-heading {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .favorites-heading h2 {
+        font-size: 30px;
     }
 
     h2 {
