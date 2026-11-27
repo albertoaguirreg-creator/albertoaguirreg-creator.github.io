@@ -328,3 +328,88 @@
 
 </body>
 </html>
+
+
+/* TABLA DE PLANIFICACION DE DATOS */
+.data-planning {
+    margin-top: 40px;
+    padding: 30px;
+    background: #11111b;
+    border: 1px solid #393047;
+    border-radius: 12px;
+}
+
+.data-planning h2 {
+    margin-bottom: 15px;
+    font-size: clamp(26px, 4vw, 36px);
+}
+
+.data-description {
+    color: #bbb;
+    margin-bottom: 25px;
+}
+
+.data-table-container {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 8px;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 650px;
+    background: #171723;
+}
+
+.data-table th {
+    background: #29203a;
+    color: var(--blue);
+    text-align: left;
+    padding: 16px;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+}
+
+.data-table td {
+    padding: 16px;
+    border-bottom: 1px solid #393047;
+    color: #ccc;
+    font-size: 14px;
+}
+
+.data-table tbody tr:hover {
+    background: #211b30;
+}
+
+.data-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.required {
+    color: #38bdf8;
+    font-weight: bold;
+}
+
+.automatic {
+    color: #a855f7;
+    font-weight: bold;
+}
+
+.data-note {
+    color: #888;
+    font-size: 12px;
+    margin-top: 18px;
+}
+
+/* ADAPTACION DE LA TABLA A CELULARES */
+@media (max-width: 768px) {
+    .data-planning {
+        padding: 20px 14px;
+    }
+
+    .data-table th,
+    .data-table td {
+        padding: 12px;
+    }
+}
